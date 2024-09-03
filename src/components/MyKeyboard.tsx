@@ -10,7 +10,7 @@ const MyKeboard = () => {
     const [firstName, setFirstName] = useState("");
     const [secondName, setSecondName] = useState("");
     const [operation, setOperation] = useState("");
-    const [result, setResult] = useState <number | undefined> (undefined);
+    const [result, setResult] = useState <number | null> (null);
 
     const handleNumberPress = (buttonValue: string) => {
         if (firstName.length < 10) {
@@ -29,7 +29,7 @@ const MyKeboard = () => {
         setFirstName("");
         setOperation("");
         setSecondName("");
-        setResult(undefined);
+        setResult(null);
     }
 
     const getResults = () => {
@@ -58,7 +58,7 @@ const MyKeboard = () => {
     }
 
     const firstNumberDisplay = () => {
-        if (result !== undefined) {
+        if (result !== null) {
             return <Text style={result < 99999 ? [Styles.screenFirstNumber, { color: myColors.result }] :
                 [Styles.screenFirstNumber, { fontSize: 50, color: myColors.result }]}>
                 {result?.toString()}
